@@ -1,0 +1,26 @@
+<div>
+	<form name = "add_user_details" class = "add_user_details" id = "add_user_details">
+		<input type = "text" name = "Username" placeholder =  "Enter Your User Name" required /><br>
+		<input type = "email" name = "EmailId" placeholder =  "Enter Your Email" required /><br>
+		<input type = "text" name = "Mobile" placeholder =  "Enter Your Mobille number" required /><br>
+		Date of Birth: <input type = "date" name = "DOB" placeholder =  "Enter Your DOB" required /><br>
+		Country: <select name = "Country" required >
+			<option value = "India">India</option>
+			<option value = "Pakistan">Pakistan</option>
+		</select><br>
+		State: <select name = "state" required > 
+			<option value = "Tamilnadu">Tamilnadu</option>
+			<option value = "Karnataka">Karnataka</option>
+		</select><br>
+		State: <select name = "city" required >
+			<option value = "Chennai">Chennai</option>
+			<option value = "Coimbatore">Coimbatore</option>
+		</select><br>
+		Address: <textarea name = "Address"></textarea><br>
+		
+		<input type="hidden" name = "file_name" value = "profile" />
+		<input type="hidden" name = "directory" value = "images/profiles/" />
+		<input type="file" id="add_user_details_file" /><br>
+		<button type = "button" onclick = "fun_add_user(this);">Add</button>
+	</form>
+</div>

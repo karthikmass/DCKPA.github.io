@@ -1,0 +1,47 @@
+<div class = "EditDetails" style = "display:none;">
+	<form name = "add_user_details" class = "add_user_details" id = "add_user_details">
+		<input type = "hidden" name = "id" class = "id" /><br>
+		<input type = "text" name = "Username" class = "Username" placeholder =  "Enter Your User Name" required /><br>
+		<input type = "email" name = "EmailId" class = "EmailId" placeholder =  "Enter Your Email" required /><br>
+		<input type = "text" name = "Mobile" class = "Mobile" placeholder =  "Enter Your Mobille number" required /><br>
+		Status: <input type = "checkbox" value = '1'  name = "status" class = "status" required /><br>
+		Date of Birth: <input type = "date" name = "DOB" class = "DOB" placeholder =  "Enter Your DOB" required /><br>
+		Country: <select name = "Country" class = "Country" required >
+			<option value = "India">India</option>
+			<option value = "Pakistan">Pakistan</option>
+		</select><br>
+		State: <select name = "state" class = "state" required > 
+			<option value = "Tamilnadu">Tamilnadu</option>
+			<option value = "Karnataka">Karnataka</option>
+		</select><br>
+		State: <select name = "city" class = "city" required >
+			<option value = "Chennai">Chennai</option>
+			<option value = "Coimbatore">Coimbatore</option>
+		</select>
+		Address: <textarea name = "Address" class = "Address" ></textarea><br>
+		
+		<input type="hidden" name = "file_name" value = "profile" />
+		<input type="hidden" name = "directory" value = "images/profiles/" />
+		<input type="file" id="add_user_details_file" /><br>
+		<button type = "button" onclick = "fun_update_user(this);">Update</button>
+		<button type = "button" onclick = "fun_edit_close();">close</button>
+	</form>
+</div>
+<div class = "ViewDetails" style = "display:none;">
+	
+</div>
+<div class = "listView">
+	<table border = "2">
+		<tr><th>#ID</th><th>Username</th><th>Phone number</th><th>Profile Image</th><th>Status</th><th>Action</th></tr>
+		<?php
+		$data_list = json_decode($data,true);
+		$c=1;
+		foreach($data_list as $k=>$v)
+		{
+		?>
+		<tr><td><?=$c=$c+1;?></td><td><?=$v['Username'];?></td><td><?=$v['Mobile'];?></td><td><img src = "<?=$v['profileImage'];?>" height = "100px" width = "100px"/></td><td><?=($v['status'] == true)?'<input type = "checkbox" checked>':'<input type = "checkbox">';?></td><td><button onclick = "fun_view(<?=$v['id'];?>,'tbl_users');">View</button><button onclick = "fun_edit(<?=$v['id'];?>,'tbl_users');">Edit</button><button onclick = "fun_delete(<?=$v['id'];?>,'tbl_users');">Delete</button></td></tr>
+		<?php
+		}
+		?>
+	</table>
+</div>
